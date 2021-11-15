@@ -1,17 +1,18 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
-import 'welcome.dart';
-import 'home.dart';
+import 'welcome_screen.dart';
 
-class Splash extends StatefulWidget {
-  const Splash({Key? key}) : super(key: key);
+
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
-  State<Splash> createState() => _SplashState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashState extends State<Splash> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   initState() {
     super.initState();
@@ -20,9 +21,10 @@ class _SplashState extends State<Splash> {
 
   _navigatetohome()async{
     await Future.delayed(Duration(seconds: 3),(){});
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MyHomePage(title: 'Hi There You Must see this Title')));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>WelcomeScreen()));
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor:Colors.green,
