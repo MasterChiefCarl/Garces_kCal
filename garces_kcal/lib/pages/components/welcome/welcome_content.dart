@@ -27,6 +27,7 @@ class WelcomeContent extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        Spacer(),
         Image.asset(
           image!,
           height: getProportionateScreenHeight(265),
@@ -34,8 +35,13 @@ class WelcomeContent extends StatelessWidget {
         ),
         Spacer(flex: 2),
         Text(
+          textHeader!, 
+          textAlign:TextAlign.center,
+          style:TextStyle(fontSize: 25,fontWeight:FontWeight.bold)),
+        Text(
           text!,
           textAlign: TextAlign.center,
+          style: TextStyle(fontSize:15),
         ),
       ],
     );

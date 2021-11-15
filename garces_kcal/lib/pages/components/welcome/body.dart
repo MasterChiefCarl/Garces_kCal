@@ -23,27 +23,27 @@ class _WCBodyState extends State<WCBody> {
     {
       "textHeader":"Eat Healthy",
       "text": 
-          "Eat Healthy\nMaintianing good health should be the primary focus of everyone",
+          "Maintianing good health should be the primary focus of everyone",
       "image": "../assets/images/w1.png"
     },
     {
       "textHeader":"Healthy Recipies",
       "text":
-          "Healthy Recipies\nBrowse thousands of healthy recipies from all over the world.",
+          "Browse thousands of healthy recipies from all over the world.",
       "image": "../assets/images/w2.png"
     },
     {
       "textHeader":"Track Your Health",
       "text": 
-          "Track Your Health\nWith amazing inbuilt tools you can track your progress.",
+          "With amazing inbuilt tools you can track your progress.",
       "image": "../assets/images/w3.png"
     },
   ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SizedBox(
-        width: double.infinity,
+      child: SizedBox.expand(
+        // width: double.infinity,
         child: Column(
           children: <Widget>[
             Expanded(
@@ -77,7 +77,7 @@ class _WCBodyState extends State<WCBody> {
                         (index) => buildDot(index: index),
                       ),
                     ),
-                    Spacer(flex: 3),
+                    Spacer(flex:3),
                     DefaultButton(
                       text: "Get Started",
                       press: () {
