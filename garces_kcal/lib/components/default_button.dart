@@ -15,7 +15,7 @@ class DefaultButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
+      width: 400,
       height: getProportionateScreenHeight(56),
       child: TextButton(
         style: TextButton.styleFrom(
@@ -28,6 +28,7 @@ class DefaultButton extends StatelessWidget {
         child: Text(
           text!,
           style: TextStyle(
+            fontFamily: 'Muli',
             fontSize: getProportionateScreenWidth(18),
             color: Colors.white,
           ),

@@ -82,6 +82,10 @@ flutter:
           weight: 700
         - asset: assets/fonts/muli/Muli-Light.ttf
           weight: 300
+
+    - family: NudMotoya
+      fonts:
+        - asset: assets/fonts/nud/NudMotoya.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

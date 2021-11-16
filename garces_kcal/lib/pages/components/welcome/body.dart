@@ -9,6 +9,7 @@ import '../../home.dart';
 // This is the best practice
 import 'welcome_content.dart';
 import '../../../components/default_button.dart';
+import '../../../services/lists.dart';
 
 class WCBody extends StatefulWidget {
   const WCBody({Key? key}) : super(key: key);
@@ -19,26 +20,7 @@ class WCBody extends StatefulWidget {
 
 class _WCBodyState extends State<WCBody> {
   int currentPage = 0;
-  List<Map<String, String>> splashData = [
-    {
-      "textHeader":"Eat Healthy",
-      "text": 
-          "Maintianing good health should be the primary focus of everyone",
-      "image": "../assets/images/w1.png"
-    },
-    {
-      "textHeader":"Healthy Recipies",
-      "text":
-          "Browse thousands of healthy recipies from all over the world.",
-      "image": "../assets/images/w2.png"
-    },
-    {
-      "textHeader":"Track Your Health",
-      "text": 
-          "With amazing inbuilt tools you can track your progress.",
-      "image": "../assets/images/w3.png"
-    },
-  ];
+  List<Map<String, String>> splashData = welcomePageViewPanels;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -77,7 +59,7 @@ class _WCBodyState extends State<WCBody> {
                         (index) => buildDot(index: index),
                       ),
                     ),
-                    Spacer(flex:3),
+                    Spacer(flex:1),
                     DefaultButton(
                       text: "Get Started",
                       press: () {
@@ -89,8 +71,8 @@ class _WCBodyState extends State<WCBody> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment:CrossAxisAlignment.center,
                         children: [
-                          Text('Already Have An Account?',style:TextStyle(fontSize: 15),),
-                          TextButton(onPressed: () { print('Log In Pressed'); } , child: Text('Log In',style:TextStyle(fontSize: 15,color: kPrimaryColor),))
+                          Text('Already Have An Account?',style:TextStyle(fontSize: 15, fontFamily:'Muli')),
+                          TextButton(onPressed: () { print('Log In Pressed'); } , child: Text('Log In',style:TextStyle(fontSize: 15,color: kPrimaryColor,fontFamily:'Muli'),))
                         ],
                       ),
                     ),
@@ -109,11 +91,11 @@ class _WCBodyState extends State<WCBody> {
     return AnimatedContainer(
       duration: kAnimationDuration,
       margin: EdgeInsets.only(right: 5),
-      height: 6,
+      height: currentPage == index? 10 : 6,
       width: currentPage == index ? 20 : 6,
       decoration: BoxDecoration(
-        color: currentPage == index ? kPrimaryColor : Color(0xFFD8D8D8),
-        borderRadius: BorderRadius.circular(3),
+        color: currentPage == index ? kButtonPrimaryColor : Color(0xFFD8D8D8),
+        borderRadius: BorderRadius.circular(5),
       ),
     );
   }

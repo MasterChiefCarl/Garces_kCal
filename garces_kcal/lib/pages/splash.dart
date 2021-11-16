@@ -3,8 +3,6 @@
 import 'package:flutter/material.dart';
 import 'welcome_screen.dart';
 
-
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -19,30 +17,38 @@ class _SplashScreenState extends State<SplashScreen> {
     _navigatetohome();
   }
 
-  _navigatetohome()async{
-    await Future.delayed(Duration(seconds: 3),(){});
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>WelcomeScreen()));
+  _navigatetohome() async {
+    await Future.delayed(Duration(seconds: 5), () {});
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor:Colors.green,
-      body: Center(
-        child: Container(
-          child: Text(
-            'kCal',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold
-              
+    return Stack(
+      children: <Widget>[
+        Image.asset(
+          "../assets/images/kcalBG.jpeg",
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          fit: BoxFit.cover,
+        ),
+        Scaffold(
+          backgroundColor: Color.fromRGBO(20,7,0, 0.5),
+          body: Center(
+            child: Container(
+              child: Text(
+                'kCal',
+                style: TextStyle(
+                  fontSize: 45,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
             ),
           ),
         ),
-      ),
+      ],
     );
-
-
-
   }
 }

@@ -22,7 +22,7 @@ class WelcomeContent extends StatelessWidget {
         Text(
           "kCal",
           style: TextStyle(
-            fontSize: getProportionateScreenWidth(36),
+            fontSize: 25,
             color: kPrimaryColor,
             fontWeight: FontWeight.bold,
           ),
@@ -34,14 +34,21 @@ class WelcomeContent extends StatelessWidget {
           width: getProportionateScreenWidth(235),
         ),
         Spacer(flex: 2),
-        Text(
-          textHeader!, 
-          textAlign:TextAlign.center,
-          style:TextStyle(fontSize: 25,fontWeight:FontWeight.bold)),
-        Text(
-          text!,
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize:15),
+        SizedBox(
+          width: 250,
+          child:Column(
+          children: [
+            Text(
+              textHeader!, 
+              textAlign:TextAlign.center,
+              style:TextStyle(fontSize: 25,fontWeight:FontWeight.bold,fontFamily:'Muli')),
+            Text(
+              text!,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize:15,fontFamily:'Muli'),
+            ),
+          ],
+          ),
         ),
       ],
     );
