@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors, avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:garces_kcal/components/default_snackbar.dart';
 import '../../../config/constants.dart';
 import '../../../config/size_config.dart';
 import '../../home.dart';
-
 
 // This is the best practice
 import 'welcome_content.dart';
@@ -59,20 +59,38 @@ class _WCBodyState extends State<WCBody> {
                         (index) => buildDot(index: index),
                       ),
                     ),
-                    Spacer(flex:1),
+                    Spacer(flex: 1),
                     DefaultButton(
                       text: "Get Started",
                       press: () {
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const MyHomePage(title: 'Home Page',)));
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyHomePage(
+                                      title: 'Home Page',
+                                    )));
                       },
                     ),
                     Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment:CrossAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text('Already Have An Account?',style:TextStyle(fontSize: 15, fontFamily:'Muli')),
-                          TextButton(onPressed: () { print('Log In Pressed'); } , child: Text('Log In',style:TextStyle(fontSize: 15,color: kPrimaryColor,fontFamily:'Muli'),))
+                          Text('Already Have An Account?',
+                              style:
+                                  TextStyle(fontSize: 15, fontFamily: 'Muli')),
+                          TextButton(
+                            child: Text(
+                              'Log In',
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: kPrimaryColor,
+                                  fontFamily: 'Muli'),
+                            ),
+                            onPressed: () {
+                              DefaultSB.show(context, 'Login Pressed');
+                            },
+                          )
                         ],
                       ),
                     ),
@@ -91,7 +109,7 @@ class _WCBodyState extends State<WCBody> {
     return AnimatedContainer(
       duration: kAnimationDuration,
       margin: EdgeInsets.only(right: 5),
-      height: currentPage == index? 10 : 6,
+      height: currentPage == index ? 10 : 6,
       width: currentPage == index ? 20 : 6,
       decoration: BoxDecoration(
         color: currentPage == index ? kButtonPrimaryColor : Color(0xFFD8D8D8),
