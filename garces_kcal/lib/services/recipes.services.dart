@@ -13,4 +13,6 @@ class Recipes {
     this.rIngredients = rIngredients;
     this.rProcess = rProcess;
   }
+  
+  
 }

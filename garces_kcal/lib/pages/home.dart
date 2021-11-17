@@ -8,13 +8,13 @@ import 'package:garces_kcal/pages/components/home/body.dart';
 class HomePage extends StatelessWidget {
   static String routeName = "/home";
 
-  const HomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+  const HomePage({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      body: HomePageBody(title: title,),
+      body: HomePageBody(),
     );
   }
 }

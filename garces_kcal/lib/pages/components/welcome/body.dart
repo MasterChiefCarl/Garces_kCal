@@ -68,9 +68,7 @@ class _WCBodyState extends State<WCBody> {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>  HomePage(
-                                      title: 'Home Page',
-                                    )));
+                                builder: (context) => HomePage()));
                       },
                     ),
                     Center(
@@ -112,7 +110,7 @@ class _WCBodyState extends State<WCBody> {
       duration: kAnimationDuration,
       margin: EdgeInsets.only(right: 5),
       height: currentPage == index ? 10 : 6,
-      width: currentPage == index ? 20 : 6,
+      width: currentPage == index ? 20 : 12,
       decoration: BoxDecoration(
         color: currentPage == index ? kButtonPrimaryColor : Color(0xFFD8D8D8),
         borderRadius: BorderRadius.circular(5),

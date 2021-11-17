@@ -35,13 +35,14 @@ class OnboardingPage extends StatelessWidget {
         ),
         Spacer(flex: 2),
         SizedBox(
-          width: 250,
+          width: 300,
           child:Column(
           children: [
             Text(
               textHeader!, 
               textAlign:TextAlign.center,
-              style:TextStyle(fontSize: 25,fontWeight:FontWeight.bold,fontFamily:'Muli')),
+              style:TextStyle(fontSize: 20,fontWeight:FontWeight.bold,),),
+            SizedBox(height:15),
             Text(
               text!,
               textAlign: TextAlign.center,

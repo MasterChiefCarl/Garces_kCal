@@ -2,9 +2,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 const kPrimaryForeTextColor = Colors.white;
+const kPrimaryUnselectedForeColor = Color.fromRGBO(145, 199, 137,1);
 const kSecondaryForeTextColor = Colors.black;
-const kPrimaryColor = Colors.green;
-const kButtonPrimaryColor = Color(0xFFFF7643);
+const kPrimaryColor = Color.fromRGBO(145, 199, 137,1);
+const kPrimaryUnselectedColor = Colors.white;
+const kButtonPrimaryColor = Color.fromRGBO(255, 147, 134,1);
 const kPrimaryLightColor = Color(0xFFFFECDF);
 const kPrimaryGradientColor = LinearGradient(
   begin: Alignment.topLeft,

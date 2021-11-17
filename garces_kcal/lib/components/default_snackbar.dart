@@ -14,13 +14,15 @@ class DefaultSB {
   static show(
     BuildContext context,
     String message,
-  ) {
+  ) 
+  {
+    consoleLog(message);
     Scaffold.of(context).showSnackBar(
       SnackBar(
         elevation: 0.0,
         //behavior: SnackBarBehavior.floating,
         content: Text(message),
-        duration: Duration(seconds: 5000000),
+        duration: Duration(seconds: 1),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
@@ -33,5 +35,6 @@ class DefaultSB {
         ),
       ),
     );
+
   }
 }

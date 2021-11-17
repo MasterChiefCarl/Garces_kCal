@@ -37,6 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: const [
+              SizedBox(height:300),
               Center(
                 child: Text(
                   'kCal',
