@@ -80,7 +80,7 @@ class _HPBState extends State<HomePageBody> {
                     },
                     child: const Center(
                       child: Text(
-                        "Recipes",
+                        "Recipes"
                       ),
                     ),
                   ),

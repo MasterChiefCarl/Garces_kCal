@@ -11,25 +11,66 @@ class FoodsScreen extends StatefulWidget {
 }
 
 class _FoodsScreenState extends State<FoodsScreen> {
+  int selectedCard = -1;
   @override
+  // Widget build(BuildContext context) {
+  //   return GridView.builder(
+  //       shrinkWrap: false,
+  //       scrollDirection: Axis.vertical,
+  //       itemCount: 10,
+  //       gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+  //         crossAxisCount: 2,
+  //         childAspectRatio: MediaQuery.of(context).size.width /
+  //             (MediaQuery.of(context).size.height / 3),
+  //       ),
+  //       itemBuilder: (BuildContext context, int index) {
+  //         return GestureDetector(
+  //           onTap: () {
+  //             setState(() {
+  //               // ontap of each card, set the defined int to the grid view index 
+  //               selectedCard = index;
+  //             });
+  //           },
+  //           child: Card(
+  //             // check if the index is equal to the selected Card integer
+  //             color: selectedCard == index ? Colors.blue : Colors.amber,
+  //             child: Container(
+  //               height: 200,
+  //               width: 200,
+  //               child: Center(
+  //                 child: Text(
+  //                   '$index',
+  //                   style: TextStyle(
+  //                     fontSize: 20,
+  //                     color: Colors.white,
+  //                     fontWeight: FontWeight.w500,
+  //                   ),
+  //                 ),
+  //               ),
+  //             ),
+  //           ),
+  //         );
+  //       });
+  // }
+
+
   Widget build(BuildContext context) {
     return GridView.count(
-      // Create a grid with 2 columns. If you change the scrollDirection to
-      // horizontal, this would produce 2 rows.
       crossAxisCount: 2,
       scrollDirection: Axis.vertical,
-      // Generate 100 Widgets that display their index in the List
+      mainAxisSpacing: 10,
+      crossAxisSpacing: 10,
       children: List.generate(20, (index) {
-        return Center(
-          child: TextButton(
-            onPressed: () {DefaultSB.show(context,'Item ${index+1} button is pressed');},
-            style: TextButton.styleFrom(
-              primary: Colors.teal.shade200,
-            ),
-            child: Container(
-              child: Text(
-                'Item ${index + 1} >',
-              ),
+        return TextButton(
+          onPressed: () {DefaultSB.show(context,'Item ${index+1} button is pressed');},
+          style: TextButton.styleFrom(
+            primary: Colors.brown,
+            backgroundColor: Colors.orange.shade100,
+            padding: const EdgeInsets.all(10.0),
+          ),
+          child: Container(
+            child: Text(
+              'Item ${index + 1} >',
             ),
           ),
         );

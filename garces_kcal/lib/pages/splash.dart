@@ -52,7 +52,7 @@ class _SplashScreenState extends State<SplashScreen> {
               SizedBox(height:300),
               Center(
                 child: Text(
-                  'da Garces',
+                  'DA GARCES',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 15,
