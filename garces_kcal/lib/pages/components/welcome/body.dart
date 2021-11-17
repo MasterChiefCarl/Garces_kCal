@@ -2,12 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:garces_kcal/components/default_snackbar.dart';
+import 'package:garces_kcal/debug/debug.dart';
 import '../../../config/constants.dart';
 import '../../../config/size_config.dart';
 import '../../home.dart';
 
 // This is the best practice
-import 'welcome_content.dart';
+import 'obnoardingpage.dart';
 import '../../../components/default_button.dart';
 import '../../../services/lists.dart';
 
@@ -37,7 +38,7 @@ class _WCBodyState extends State<WCBody> {
                   });
                 },
                 itemCount: splashData.length,
-                itemBuilder: (context, index) => WelcomeContent(
+                itemBuilder: (context, index) => OnboardingPage(
                   image: splashData[index]["image"],
                   text: splashData[index]['text'],
                   textHeader: splashData[index]['textHeader'],
@@ -63,10 +64,11 @@ class _WCBodyState extends State<WCBody> {
                     DefaultButton(
                       text: "Get Started",
                       press: () {
+                        consoleLog('Default Button: "Get Started" was Pressed');
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const MyHomePage(
+                                builder: (context) =>  HomePage(
                                       title: 'Home Page',
                                     )));
                       },

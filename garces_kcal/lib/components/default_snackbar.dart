@@ -1,6 +1,8 @@
 // ignore_for_file: deprecated_member_use, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:garces_kcal/config/constants.dart';
+import 'package:garces_kcal/debug/debug.dart';
 
 class DefaultSB {
   final String message;
@@ -20,14 +22,14 @@ class DefaultSB {
         content: Text(message),
         duration: Duration(seconds: 5000000),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(16.0), topRight: Radius.circular(16.0)),
+          borderRadius: BorderRadius.circular(20),
         ),
-        //backgroundColor: Colors.redAccent,
+        backgroundColor: kPrimaryColor,
+        
         action: SnackBarAction(
-          textColor: Color(0xFFFAF2FB),
+          textColor: kPrimaryForeTextColor,
           label: 'OK',
-          onPressed: () {},
+          onPressed: () {consoleLog('SnackBar Press: OK');},
         ),
       ),
     );

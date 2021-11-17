@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import '../../../config/constants.dart';
 import '../../../config/size_config.dart';
 
-class WelcomeContent extends StatelessWidget {
-  const WelcomeContent({
+class OnboardingPage extends StatelessWidget {
+  const OnboardingPage({
     Key? key,
     this.textHeader,
     this.text,

@@ -1,6 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+const kPrimaryForeTextColor = Colors.white;
+const kSecondaryForeTextColor = Colors.black;
 const kPrimaryColor = Colors.green;
 const kButtonPrimaryColor = Color(0xFFFF7643);
 const kPrimaryLightColor = Color(0xFFFFECDF);
