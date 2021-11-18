@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:garces_kcal/components/default_button.dart';
 import 'package:garces_kcal/config/constants.dart';
+import 'package:garces_kcal/debug/debug.dart';
 import 'package:garces_kcal/pages/components/home/food/gallerylist.dart';
 import 'package:garces_kcal/services/foods.services.dart';
 
@@ -80,6 +82,17 @@ class FoodInfoPage extends StatelessWidget {
             SizedBox(height: 10),
             Flexible(fit: FlexFit.loose,
               child: ImageGallery(imgGallery: selectedFood.fImageGallery),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            DefaultButton(
+                text: 'Add to Favorites',
+                press: () {
+                  consoleLog('Added to Favorites :)');
+                }),
+            SizedBox(
+              height: 10,
             ),
           ],
         ),
