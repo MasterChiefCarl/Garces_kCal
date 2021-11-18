@@ -79,9 +79,7 @@ class _HPBState extends State<HomePageBody> {
                           curve: Curves.bounceIn);
                     },
                     child: const Center(
-                      child: Text(
-                        "Recipes"
-                      ),
+                      child: Text("Recipes"),
                     ),
                   ),
                 ),
@@ -99,40 +97,70 @@ class _HPBState extends State<HomePageBody> {
                   });
                 }
               },
-              children: const [FoodsScreen(), RecipesScreen()],
+              children: [
+                Container(
+                  child: FoodsScreen(),
+                  padding: EdgeInsets.all(20),
+                ),
+                Container(
+                  child: RecipesScreen(),
+                  padding: EdgeInsets.all(20),
+                )
+              ],
             ),
           ),
           // Expanded(
           //     child: isFoods ? const FoodsScreen() : const RecipesScreen()),
           SizedBox(
-            height: 51,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Spacer(),
-                IconButton(onPressed: () {DefaultSB.show(context,'Home button pressed');}, icon: Icon(Icons.home_outlined)),
-                Spacer(),
-                IconButton(onPressed: () {DefaultSB.show(context,'Search button pressed');}, icon: Icon(Icons.search)),
-                Spacer(),
-                Ink(
-                    decoration: const ShapeDecoration(
-                      color: kPrimaryColor,
-                      shape: CircleBorder(),
-                    ),
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.camera_alt_rounded,
+            height: 70,
+            child: Container(
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 30),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Spacer(),
+                  IconButton(
+                      onPressed: () {
+                        DefaultSB.show(context, 'Home button pressed');
+                      },
+                      icon: Icon(Icons.home_outlined)),
+                  Spacer(),
+                  IconButton(
+                      onPressed: () {
+                        DefaultSB.show(context, 'Search button pressed');
+                      },
+                      icon: Icon(Icons.search)),
+                  Spacer(),
+                  Ink(
+                      decoration: const ShapeDecoration(
+                        color: kPrimaryColor,
+                        shape: CircleBorder(),
                       ),
-                      iconSize: 25,
-                      onPressed: () {DefaultSB.show(context,'Camera button pressed');},
-                    )),
-                Spacer(),
-                IconButton(onPressed: () {DefaultSB.show(context,'Favorite button pressed');}, icon: Icon(Icons.favorite)),
-                Spacer(),
-                IconButton(onPressed: () {DefaultSB.show(context,'Profile button pressed');}, icon: Icon(Icons.person_outlined)),
-                Spacer(),
-              ],
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.camera_alt_rounded,
+                        ),
+                        iconSize: 25,
+                        onPressed: () {
+                          DefaultSB.show(context, 'Camera button pressed');
+                        },
+                      )),
+                  Spacer(),
+                  IconButton(
+                      onPressed: () {
+                        DefaultSB.show(context, 'Favorite button pressed');
+                      },
+                      icon: Icon(Icons.favorite),color: Colors.redAccent,),
+                  Spacer(),
+                  IconButton(
+                      onPressed: () {
+                        DefaultSB.show(context, 'Profile button pressed');
+                      },
+                      icon: Icon(Icons.person_outlined)),
+                  Spacer(),
+                ],
+              ),
             ),
           ),
         ],

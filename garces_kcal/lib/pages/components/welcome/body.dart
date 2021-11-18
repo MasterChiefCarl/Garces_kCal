@@ -21,7 +21,7 @@ class WCBody extends StatefulWidget {
 
 class _WCBodyState extends State<WCBody> {
   int currentPage = 0;
-  List<Map<String, String>> splashData = welcomePageViewPanels;
+  List<Map<String, dynamic>> splashData = welcomePageViewPanels;
   @override
   Widget build(BuildContext context) {
     return SafeArea(

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'welcome_screen.dart';
 
@@ -16,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   _navigatetowelcome() async {
-    await Future.delayed(Duration(seconds: 5), () {});
+    await Future.delayed(Duration(seconds: 1), () {});
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
   }
@@ -26,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Stack(
       children: <Widget>[
         Image.asset(
-          "../assets/images/kcalBG.jpeg",
+          "assets/images/kcalBG.jpeg",
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.cover,

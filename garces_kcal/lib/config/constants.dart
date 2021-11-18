@@ -7,7 +7,8 @@ const kSecondaryForeTextColor = Colors.black;
 const kPrimaryColor = Color.fromRGBO(145, 199, 137,1);
 const kPrimaryUnselectedColor = Colors.white;
 const kButtonPrimaryColor = Color.fromRGBO(255, 147, 134,1);
-const kPrimaryLightColor = Color(0xFFFFECDF);
+const kButtonForeText = Colors.brown;
+var kPrimaryLightColor = Colors.amber.shade100;
 const kPrimaryGradientColor = LinearGradient(
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,

@@ -1,7 +1,10 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:garces_kcal/components/default_snackbar.dart';
+import 'package:garces_kcal/config/constants.dart';
+import 'package:garces_kcal/pages/components/food/body.dart';
+import 'package:garces_kcal/services/foods.services.dart';
+import 'package:garces_kcal/services/lists.dart';
 
 class FoodsScreen extends StatefulWidget {
   const FoodsScreen({Key? key}) : super(key: key);
@@ -11,66 +14,50 @@ class FoodsScreen extends StatefulWidget {
 }
 
 class _FoodsScreenState extends State<FoodsScreen> {
-  int selectedCard = -1;
+  
+ List <Food> foodList = foodLists; 
+  
+  
   @override
-  // Widget build(BuildContext context) {
-  //   return GridView.builder(
-  //       shrinkWrap: false,
-  //       scrollDirection: Axis.vertical,
-  //       itemCount: 10,
-  //       gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-  //         crossAxisCount: 2,
-  //         childAspectRatio: MediaQuery.of(context).size.width /
-  //             (MediaQuery.of(context).size.height / 3),
-  //       ),
-  //       itemBuilder: (BuildContext context, int index) {
-  //         return GestureDetector(
-  //           onTap: () {
-  //             setState(() {
-  //               // ontap of each card, set the defined int to the grid view index 
-  //               selectedCard = index;
-  //             });
-  //           },
-  //           child: Card(
-  //             // check if the index is equal to the selected Card integer
-  //             color: selectedCard == index ? Colors.blue : Colors.amber,
-  //             child: Container(
-  //               height: 200,
-  //               width: 200,
-  //               child: Center(
-  //                 child: Text(
-  //                   '$index',
-  //                   style: TextStyle(
-  //                     fontSize: 20,
-  //                     color: Colors.white,
-  //                     fontWeight: FontWeight.w500,
-  //                   ),
-  //                 ),
-  //               ),
-  //             ),
-  //           ),
-  //         );
-  //       });
-  // }
-
-
   Widget build(BuildContext context) {
     return GridView.count(
       crossAxisCount: 2,
       scrollDirection: Axis.vertical,
-      mainAxisSpacing: 10,
-      crossAxisSpacing: 10,
-      children: List.generate(20, (index) {
-        return TextButton(
-          onPressed: () {DefaultSB.show(context,'Item ${index+1} button is pressed');},
-          style: TextButton.styleFrom(
-            primary: Colors.brown,
-            backgroundColor: Colors.orange.shade100,
-            padding: const EdgeInsets.all(10.0),
-          ),
-          child: Container(
-            child: Text(
-              'Item ${index + 1} >',
+      mainAxisSpacing: 5,
+      crossAxisSpacing: 5,
+      childAspectRatio: 2.0,
+      children: List.generate(foodList.length, (index) {
+        return Center(
+          child: TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FoodInfoPage(selectedFood: foodList[index])));
+            },
+            style: TextButton.styleFrom(
+              primary: kButtonForeText,
+              backgroundColor: kPrimaryLightColor,
+              padding: const EdgeInsets.fromLTRB(10,20,5,20),
+              shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Image.asset(
+                  "${foodList[index].fIcon}",
+                  height: 40,
+                  width: 40,
+                  fit: BoxFit.fill,
+                ),
+                const SizedBox(width: 10),
+                Text(
+                  '${foodList[index].fName}',
+                ),
+                const Icon (Icons.arrow_right, color: Colors.brown,),
+              ],
             ),
           ),
         );
