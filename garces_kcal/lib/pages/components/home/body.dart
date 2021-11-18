@@ -104,7 +104,7 @@ class _HPBState extends State<HomePageBody> {
                 ),
                 Container(
                   child: RecipesScreen(),
-                  padding: EdgeInsets.all(20),
+                  padding: EdgeInsets.all(10),
                 )
               ],
             ),

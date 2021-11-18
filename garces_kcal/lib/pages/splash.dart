@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Stack(
       children: <Widget>[
         Image.asset(
-          "assets/images/kcalBG.jpeg",
+          "assets/images/kcalBG.jpg",
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.cover,

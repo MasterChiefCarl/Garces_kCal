@@ -12,18 +12,22 @@ class ImageGallery extends StatelessWidget {
 @override
   Widget build(BuildContext context) {
     return GridView.count(
+      shrinkWrap: true,
       crossAxisCount: 2,
       scrollDirection: Axis.vertical,
       mainAxisSpacing: 5,
       crossAxisSpacing: 5,
-      childAspectRatio: 0.5,
+      childAspectRatio: .5,
+      physics: const NeverScrollableScrollPhysics(),
       children: List.generate(imgGallery.length, (index) {
         return Center(
           child: Container(
-            child:Image.asset(imgGallery[index]),
-            padding: const EdgeInsets.all(20.0),
+            height:400,
+            width:200,
+            child:Image.asset(imgGallery[index],fit: BoxFit.fitHeight,),
+            padding: const EdgeInsets.all(10.0),
             decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(20)),
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
                 color: kPrimaryLightColor,
               ),)
         );

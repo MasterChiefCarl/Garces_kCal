@@ -1,18 +1,35 @@
-class Recipes {
-  int? rNumber; 
-  String? rName;
-  String? imageThumb;
-  String? rDescription;
-  List<String>? rIngredients;
-  List<String>? rProcess;
+class Recipe {
+  final String rName;
+  final double rRating;
+  final int rServe;
+  bool rIsFavorite = false;
+  final int rMinPrepare;
+  late final String fImage;
+  final String fDescription;
+  final List<Ingredients> fIngredients;
+  final List<String> fDirections;
 
-
-  Recipes (String rName, String rDescription, List<String> rIngredients, List<String> rProcess){
-    this.rName = rName;
-    this.rDescription = rDescription;
-    this.rIngredients = rIngredients;
-    this.rProcess = rProcess;
+  Recipe(this.rName, this.rRating, this.rServe, this.rMinPrepare, this.fDescription, this.fIngredients, this.fDirections){
+    fImage = 'assets/images/recipe/$rName.png'; 
   }
-  
-  
+
+  void setFaveToggle() {
+    if (rIsFavorite == false) {
+      rIsFavorite =
+          true; //once command is called, toggles favorite and sets to true
+    } else {
+      rIsFavorite = 
+          false; //once favorite toggle to unfavorite item
+    }
+  }
+}
+
+class Ingredients {
+  final String iName;
+  final String iMeasurements;
+  late final String iImage;
+
+  Ingredients(this.iName, this.iMeasurements) {
+    iImage = 'assets/image/ingredients/$iName.png';
+  }
 }

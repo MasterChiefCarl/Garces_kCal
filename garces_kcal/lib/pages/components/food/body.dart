@@ -34,7 +34,7 @@ class FoodInfoPage extends StatelessWidget {
         padding: const EdgeInsets.all(30.0),
         child: Column(
           mainAxisSize: MainAxisSize.min ,
-          mainAxisAlignment: MainAxisAlignment.center,
+          
           children: [
             Container(
               padding: EdgeInsets.all(20.0),
@@ -78,8 +78,7 @@ class FoodInfoPage extends StatelessWidget {
               strutStyle: StrutStyle(height: 2),
             ),
             SizedBox(height: 10),
-            Flexible(
-              fit: FlexFit.loose,
+            Flexible(fit: FlexFit.loose,
               child: ImageGallery(imgGallery: selectedFood.fImageGallery),
             )
           ],

@@ -26,7 +26,7 @@ class Food {
   String getDescription(){
     return "fDescription";
   }
-  List<String>? getImageGallery() {
+  List<String> getImageGallery() {
     return fImageGallery;
   }
 }

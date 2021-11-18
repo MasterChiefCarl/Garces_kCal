@@ -47,14 +47,14 @@ class _FoodsScreenState extends State<FoodsScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Image.asset(
-                  "${foodList[index].fIcon}",
+                  foodList[index].fIcon,
                   height: 40,
                   width: 40,
                   fit: BoxFit.fill,
                 ),
                 const SizedBox(width: 10),
                 Text(
-                  '${foodList[index].fName}',
+                  foodList[index].fName,
                 ),
                 const Icon (Icons.arrow_right, color: Colors.brown,),
               ],
