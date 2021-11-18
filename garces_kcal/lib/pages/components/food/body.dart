@@ -33,7 +33,7 @@ class FoodInfoPage extends StatelessWidget {
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(30.0),
         child: Column(
-          mainAxisSize: MainAxisSize.max ,
+          mainAxisSize: MainAxisSize.min ,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
@@ -78,10 +78,10 @@ class FoodInfoPage extends StatelessWidget {
               strutStyle: StrutStyle(height: 2),
             ),
             SizedBox(height: 10),
-            // Flexible(
-            //   fit:FlexFit.loose,
-            //   child: ImageGallery(imgGallery: selectedFood.fImageGallery),
-            // )
+            Flexible(
+              fit: FlexFit.loose,
+              child: ImageGallery(imgGallery: selectedFood.fImageGallery),
+            )
           ],
         ),
       ),
