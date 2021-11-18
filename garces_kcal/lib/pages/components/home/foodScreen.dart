@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:garces_kcal/config/constants.dart';
-import 'package:garces_kcal/pages/components/food/body.dart';
+import 'package:garces_kcal/pages/components/home/food/body.dart';
 import 'package:garces_kcal/services/foods.services.dart';
 import 'package:garces_kcal/services/lists.dart';
 

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import
 
 import 'package:flutter/material.dart';
 import 'package:garces_kcal/components/default_button.dart';
@@ -7,6 +7,9 @@ import 'package:garces_kcal/components/roundendbutton.dart';
 import 'package:garces_kcal/config/constants.dart';
 import 'package:garces_kcal/pages/components/home/foodScreen.dart';
 import 'package:garces_kcal/pages/components/home/recipieScreen.dart';
+import 'package:garces_kcal/services/foods.services.dart';
+import 'package:garces_kcal/services/lists.dart'; //IGNORE ERROR
+import 'package:garces_kcal/services/recipes.services.dart';
 
 class HomePageBody extends StatefulWidget {
   const HomePageBody({Key? key}) : super(key: key);
@@ -20,11 +23,14 @@ class _HPBState extends State<HomePageBody> {
   late List<Widget> data;
   late PageController _pCon;
   String title = 'Favorites';
+  List<Food> isFood = 
+  foodLists;
+  List<Recipe> isRecipe = 
+  recipeLists;
 
   @override
   void initState() {
     isFoods = true;
-    data = [const Text("Potato")];
     _pCon = PageController();
     super.initState();
   }
@@ -99,11 +105,11 @@ class _HPBState extends State<HomePageBody> {
               },
               children: [
                 Container(
-                  child: FoodsScreen(),
+                  child: isFood.isNotEmpty ? FoodsScreen() : EmptyFood(),
                   padding: EdgeInsets.all(20),
                 ),
                 Container(
-                  child: RecipesScreen(),
+                  child: isRecipe.isNotEmpty ? RecipesScreen() : EmptyRecipe(),
                   padding: EdgeInsets.all(10),
                 )
               ],
@@ -148,19 +154,126 @@ class _HPBState extends State<HomePageBody> {
                       )),
                   Spacer(),
                   IconButton(
-                      onPressed: () {
-                        DefaultSB.show(context, 'Favorite button pressed');
-                      },
-                      icon: Icon(Icons.favorite),color: Colors.redAccent,),
+                    onPressed: () {
+                      DefaultSB.show(context, 'Favorite button pressed');
+                    },
+                    icon: Icon(Icons.favorite),
+                    color: Colors.redAccent,
+                  ),
                   Spacer(),
                   IconButton(
-                      onPressed: () {
-                        DefaultSB.show(context, 'Profile button pressed');
-                      },
-                      icon: Icon(Icons.person_outlined)),
+                    onPressed: () {
+                      DefaultSB.show(context, 'Profile button pressed');
+                    },
+                    icon: Icon(Icons.person_outline),
+                  ),
                   Spacer(),
                 ],
               ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class EmptyFood extends StatelessWidget {
+  const EmptyFood({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Center(
+            child: Image.asset('assets/images/emptyfood.png',
+                width: 200, height: 200),
+          ),
+          SizedBox(height: 10),
+          Center(
+            child: Column(
+              children: [
+                Text(
+                  'No Food Found',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                Text(
+                  'You didn\'t save any Food. Go Ahead search and save you Favorite ones',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey,
+                  ),
+                ),
+                 SizedBox(height: 100,),
+                DefaultButton(
+                  text: 'Search',
+                  press: () {
+                    DefaultSB.show(context,"Search Button Pressed");
+                  },
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class EmptyRecipe extends StatelessWidget {
+  const EmptyRecipe({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Center(
+            child: Image.asset('assets/images/emptyrecipe.png',
+                width: 200, height: 200),
+          ),
+          SizedBox(height: 10),
+          Center(
+            child: Column(
+              children: [
+                Text(
+                  'No Recipes Found',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                Text(
+                  'You didn\'t save any Recipes. Go Ahead search and save you Favorite ones',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey,
+                  ),
+                ),
+                SizedBox(height: 100,),
+                DefaultButton(
+                  text: 'Search',
+                  press: () {
+                    DefaultSB.show(context,"Search Button Pressed");
+                  },
+                ),
+              ],
             ),
           ),
         ],

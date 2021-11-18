@@ -4,13 +4,13 @@ class Recipe {
   final int rServe;
   bool rIsFavorite = false;
   final int rMinPrepare;
-  late final String fImage;
-  final String fDescription;
-  final List<Ingredients> fIngredients;
-  final List<String> fDirections;
+  late final String rImage;
+  final String rDescription;
+  final List<Ingredients> rIngredients;
+  final List<String> rDirections;
 
-  Recipe(this.rName, this.rRating, this.rServe, this.rMinPrepare, this.fDescription, this.fIngredients, this.fDirections){
-    fImage = 'assets/images/recipe/$rName.png'; 
+  Recipe(this.rName, this.rRating, this.rServe, this.rMinPrepare, this.rDescription, this.rIngredients, this.rDirections){
+    rImage = 'assets/images/recipe/$rName.png'; 
   }
 
   void setFaveToggle() {
@@ -30,6 +30,6 @@ class Ingredients {
   late final String iImage;
 
   Ingredients(this.iName, this.iMeasurements) {
-    iImage = 'assets/image/ingredients/$iName.png';
+    iImage = 'assets/images/ingredients/$iName.png';
   }
 }

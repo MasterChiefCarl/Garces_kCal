@@ -120,7 +120,7 @@ List<Recipe> recipeLists = [
     Ingredients("Green Bell Pepper", "60g"),
     Ingredients("Shiitake Mushrooms", "80g"),
     Ingredients("Vegetable Oil", "-"),
-    Ingredients("Dashi / Fish Stock", "300ml"),
+    Ingredients("Dashi", "300ml"),
     Ingredients("Soy Sauce", "5tbsp"),
     Ingredients("Vinegar", "30ml"),
     Ingredients("Sesame Oil", "few drops"),

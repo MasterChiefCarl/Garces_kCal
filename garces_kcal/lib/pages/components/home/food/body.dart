@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:garces_kcal/config/constants.dart';
-import 'package:garces_kcal/pages/components/food/gallerylist.dart';
+import 'package:garces_kcal/pages/components/home/food/gallerylist.dart';
 import 'package:garces_kcal/services/foods.services.dart';
 
 class FoodInfoPage extends StatelessWidget {
@@ -80,7 +80,7 @@ class FoodInfoPage extends StatelessWidget {
             SizedBox(height: 10),
             Flexible(fit: FlexFit.loose,
               child: ImageGallery(imgGallery: selectedFood.fImageGallery),
-            )
+            ),
           ],
         ),
       ),

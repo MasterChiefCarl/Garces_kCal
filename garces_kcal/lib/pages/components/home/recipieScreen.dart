@@ -1,9 +1,9 @@
 // ignore_for_file: file_names, prefer_const_declarations, prefer_const_constructors, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:garces_kcal/pages/components/home/recipe/body.dart';
 import 'package:garces_kcal/services/lists.dart';
 import 'package:garces_kcal/services/recipes.services.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class RecipesScreen extends StatefulWidget {
   const RecipesScreen({Key? key}) : super(key: key);
@@ -20,88 +20,224 @@ class _RecipesScreenState extends State<RecipesScreen> {
     return ListView(
       padding: EdgeInsets.all(16),
       children: List.generate(
-        recipeList.length,
-        (index) => buildImageInteractionCard(recipeList[index]),
-        // [
-        //   buildImageInteractionCard(),
-        // ],
-      ),
-    );
-  }
-
-  Widget buildImageInteractionCard(Recipe recipe) {
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(24),
-      ),
-      child: Column(
-        children: [
-          Stack(
-            alignment: AlignmentDirectional.topEnd,
-            children: [
-              Image.asset(
-                recipe.fImage,
-                height: 100,
-                width: double.infinity,
-                fit: BoxFit.fitWidth,
-              ),
-              Positioned(
-                top: 6,
-                right: 6,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.favorite_outline, color: Colors.white),
+          recipeList.length,
+          (index) => Card(
+                clipBehavior: Clip.antiAlias,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
                 ),
-              ),
-            ],
-          ),
-          Padding(
-            padding: EdgeInsets.all(16).copyWith(bottom: 0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children:[
-                    Icon(Icons.schedule_outlined)
-
-                ],),
-                SizedBox(height: 10,),
-                Text(
-                  recipe.rName,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    fontSize: 16,
-                  ),
+                child: Column(
+                  children: [
+                    Stack(
+                      alignment: AlignmentDirectional.topEnd,
+                      children: [
+                        Image.asset(
+                          recipeList[index].rImage,
+                          height: 130,
+                          width: double.infinity,
+                          fit: BoxFit.fitWidth,
+                        ),
+                        Positioned(
+                          top: 6,
+                          right: 6,
+                          child: IconButton(
+                            onPressed: () {
+                              if (mounted) {
+                                setState(() {
+                                  recipeList[index].setFaveToggle();
+                                  //or if you want a toggle
+                                  //items[i]['isFavorite'] = !items[i]['isFavorite'];
+                                });
+                              }
+                            },
+                            icon: Icon(recipeList[index].rIsFavorite ? Icons.favorite : Icons.favorite_border,
+                                color:Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RecipeInfoPage(
+                                    selectedRecipe: recipeList[index])));
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                      ),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(16).copyWith(bottom: 0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.schedule_outlined,
+                                      color: Colors.black,
+                                    ),
+                                    Text(
+                                        '${recipeList[index].rMinPrepare} mins.',
+                                        style: TextStyle(color: Colors.black)),
+                                    Icon(
+                                      Icons.supervisor_account_outlined,
+                                      color: Colors.black,
+                                    ),
+                                    Text('${recipeList[index].rServe} serve',
+                                        style: TextStyle(color: Colors.black))
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text(
+                                  recipeList[index].rName,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text(
+                                  recipeList[index].rDescription,
+                                  style: TextStyle(
+                                      fontSize: 12, color: Colors.black),
+                                ),
+                              ],
+                            ),
+                          ),
+                          ButtonBar(
+                            alignment: MainAxisAlignment.start,
+                            children: const [
+                              SizedBox(
+                                height: 20,
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(height: 10,),
-                Text(
-                  recipe.fDescription,
-                  style: TextStyle(fontSize: 12),
-                ),
-              ],
-            ),
-          ),
-          ButtonBar(
-            alignment: MainAxisAlignment.start,
-            children: [
-              TextButton(
-                child: Text('Buy Cat'),
-                onPressed: () {},
-              ),
-              TextButton(
-                child: Text('Buy Cat Food'),
-                onPressed: () {},
               )
-            ],
-          )
-        ],
-      ),
+          // buildImageInteractionCard(recipeList[index]),
+          // [
+          //   buildImageInteractionCard(),
+          // ],
+          ),
     );
   }
 }
+//   Widget buildImageInteractionCard(Recipe recipe) {
+//     return Card(
+//       clipBehavior: Clip.antiAlias,
+//       shape: RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(24),
+//       ),
+//       child: Column(
+//         children: [
+//           Stack(
+//             alignment: AlignmentDirectional.topEnd,
+//             children: [
+//               Image.asset(
+//                 recipe.rImage,
+//                 height: 130,
+//                 width: double.infinity,
+//                 fit: BoxFit.fitWidth,
+//               ),
+//               Positioned(
+//                 top: 6,
+//                 right: 6,
+//                 child: IconButton(
+//                   onPressed: () {},
+//                   icon: Icon(Icons.favorite_outline, color: Colors.white),
+//                 ),
+//               ),
+//             ],
+//           ),
+//           ElevatedButton(
+//             onPressed: () {
+//               Navigator.push(
+//                   context,
+//                   MaterialPageRoute(
+//                       builder: (context) =>
+//                           RecipeInfoPage(selectedRecipe: recipe)));
+//             },
+//             style: ElevatedButton.styleFrom(
+//               primary: Colors.white,
+//             ),
+//             child: Column(
+//               children: [
+//                 Padding(
+//                   padding: EdgeInsets.all(16).copyWith(bottom: 0),
+//                   child: Column(
+//                     crossAxisAlignment: CrossAxisAlignment.start,
+//                     children: [
+//                       Row(
+//                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                         crossAxisAlignment: CrossAxisAlignment.center,
+//                         children: [
+//                           Icon(
+//                             Icons.schedule_outlined,
+//                             color: Colors.black,
+//                           ),
+//                           Text('${recipe.rMinPrepare} mins.',
+//                               style: TextStyle(color: Colors.black)),
+//                           Icon(
+//                             Icons.supervisor_account_outlined,
+//                             color: Colors.black,
+//                           ),
+//                           Text('${recipe.rServe} serve',
+//                               style: TextStyle(color: Colors.black))
+//                         ],
+//                       ),
+//                       SizedBox(
+//                         height: 10,
+//                       ),
+//                       Text(
+//                         recipe.rName,
+//                         style: TextStyle(
+//                           fontWeight: FontWeight.bold,
+//                           color: Colors.black,
+//                           fontSize: 16,
+//                         ),
+//                       ),
+//                       SizedBox(
+//                         height: 10,
+//                       ),
+//                       Text(
+//                         recipe.rDescription,
+//                         style: TextStyle(fontSize: 12, color: Colors.black),
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//                 ButtonBar(
+//                   alignment: MainAxisAlignment.start,
+//                   children: const [
+//                     SizedBox(
+//                       height: 20,
+//                     )
+//                   ],
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 class ColorFilters {
   static final greyscale = ColorFilter.matrix(<double>[
